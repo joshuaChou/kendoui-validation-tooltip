@@ -1,0 +1,173 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        html {
+            font-size: 12px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+    <title></title>
+    <link href="http://cdn.kendostatic.com/2014.1.318/styles/kendo.common.min.css" rel="stylesheet" />
+    <link href="http://cdn.kendostatic.com/2014.1.318/styles/kendo.default.min.css" rel="stylesheet" />
+    <link href="kendoUIValidation.css" rel="stylesheet" />
+    <script src="http://cdn.kendostatic.com/2014.1.318/js/jquery.min.js"></script>
+    <script src="http://cdn.kendostatic.com/2014.1.318/js/kendo.all.min.js"></script>
+    <script src="kendoUITooltipValidation.js"></script>
+</head>
+<body>
+    <div id="example" class="k-content">
+        <form id="tickets">
+            <h3>Book Tickets</h3>
+            <ul>
+                <li>
+                    <label for="fullname" class="required">Your Name</label>
+                    <input type="text" id="fullname" name="fullname" class="k-textbox" placeholder="Full name" required validationmessage="Please enter {0}" />
+                    <span class="k-invalid-msg" data-for="fullname"></span>
+
+                </li>
+                <li>
+                    
+                    <label for="search" class="required">Movie</label>
+                    <input type="search" id="search" name="search" placeholder="Movie" required validationmessage="Please select movie" />
+<span class="k-invalid-msg" data-for="search"></span>
+                </li>
+                <li>
+                    
+                    <label for="time">Start time</label>
+                    <select name="time" id="time" required data-required-msg="Select start time">
+                        <option>14:00</option>
+                        <option>15:30</option>
+                        <option>17:00</option>
+                        <option>20:15</option>
+                    </select>
+<span class="k-invalid-msg" data-for="time"></span>
+                </li>
+                <li>
+                    
+                    <label for="size">Select size</label>
+                    <select id="size" name="size" placeholder="Select size..." required data-required-msg="Select size">
+                        <option>X-Small</option>
+                        <option>Small</option>
+                        <option>Medium</option>
+                        <option>Large</option>
+                        <option>X-Large</option>
+                        <option>2X-Large</option>
+                    </select>
+                    <span class="k-invalid-msg" data-for="size"></span>
+                </li>
+                <li>
+                    
+                    <label for="amount">Amount</label>
+                    <input id="amount" name="Amount" type="text" min="1" max="10" value="1" required data-max-msg="Enter value between 1 and 10" />
+<span class="k-invalid-msg" data-for="Amount"></span>
+                </li>
+                <li>
+                    
+                    <label for="email" class="required">Email</label>
+                    <input type="email" id="email" name="email" class="k-textbox" placeholder="e.g. myname@example.net" required data-email-msg="Email format is not valid" />
+                    <span class="k-invalid-msg" data-for="email"></span>
+                </li>
+                <li>
+                    
+                    <label for="tel" class="required">Phone</label>
+                    <input type="tel" id="tel" name="tel" class="k-textbox" pattern="\d{10}" placeholder="Please enter a ten digit phone number" required
+                           validationmessage="Please enter a ten digit phone number" />
+                    <span class="k-invalid-msg" data-for="tel"></span>
+                </li>
+                 <li>
+                    
+                    <label for="datetimepicker" >DateTime</label>
+                    <input  id="datetimepicker" name="datetimepicker" placeholder="請選擇日期時間" required validationmessage="請選擇日期時間"/>
+                     <span class="k-invalid-msg" data-for="datetimepicker"></span>
+                </li>
+                <li class="accept">
+                    
+                    <input type="checkbox" name="Accept" required validationmessage="Acceptance is required" /> I accept the terms and condition of service
+<span class="k-invalid-msg" data-for="Accept"></span>
+                </li>
+                <li class="accept">
+                    <button class="k-button" id="kSubmit" type="submit">Submit</button>
+                </li>
+                <li class="status">
+                </li>
+
+            </ul>
+        </form>
+
+        <style scoped>
+            #tickets {
+            }
+
+                #tickets h3 {
+                    font-weight: normal;
+                    font-size: 1.4em;
+                    border-bottom: 1px solid #ccc;
+                }
+
+                #tickets ul {
+                    list-style-type: none;
+                    margin: 0;
+                    padding: 0;
+                }
+
+                #tickets li {
+                    margin: 10px 0 0 0;
+                }
+
+
+        </style>
+
+        <script>
+            $(document).ready(function () {
+                
+                
+                
+                //Init初始化元件
+                var data = [
+                "12 Angry Men",
+                "Il buono, il brutto, il cattivo.",
+                "Inception",
+                "One Flew Over the Cuckoo's Nest",
+                "Pulp Fiction",
+                "Schindler's List",
+                "The Dark Knight",
+                "The Godfather",
+                "The Godfather: Part II",
+                "The Shawshank Redemption"
+                ];
+                
+                
+                
+                $("#search").kendoAutoComplete({
+                    dataSource: data,
+                    separator: ", "
+                });
+
+                $("#time").kendoDropDownList({
+                    optionLabel: "--Start time--"
+                });
+
+                $("#amount").kendoNumericTextBox();
+
+                $("#size").kendoComboBox({ optionLabel: "--Start Size--" });
+                
+                 $("#datetimepicker").kendoDateTimePicker({
+                    value:new Date()
+                });
+
+                $("#kSubmit").click(function () {//按下送出
+                    event.preventDefault();
+                    
+                    KendoUIValidationCheck($("#tickets"));
+                });
+                
+              
+            });
+
+        </script>
+    </div>
+
+
+</body>
+</html>

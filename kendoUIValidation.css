@@ -1,0 +1,50 @@
+            /*toolTip 的顏色*/
+            .k-widget.k-tooltip {
+                border-color: rgb(197, 197, 197);
+                background-color: red;
+                color: white;
+            }
+
+            /*讓textbox顯示有紅框,因為此方法為預設的行為。*/
+            .k-invalid,
+            .k-textbox.k-invalid {
+                border: 1px solid #ee0101;
+            }
+
+            /*加入紅框給kendo ui的元件使用*/
+            .UIBorderRed {
+                border: 1px solid #ee0101 !important;
+            }
+
+            /*預設的errorTip樣式*/
+            .errorTip {
+                background-color: #ee0101;
+                color: #fff;
+                float: right;
+                font-size: 12px;
+                border: 2px solid #ddd;
+                -moz-box-shadow: 0 0 6px #000;
+                -webkit-box-shadow: 0 0 6px #000;
+                padding: 4px 10px 4px 10px;
+                border-radius: 6px;
+                -webkit-border-radius: 6px;
+                position: absolute;
+                opacity: 0.87;
+                display: none !important;
+            }
+           /*顯示的errorTip樣式*/
+            .errorTipShow {
+                background-color: #ee0101;
+                color: #fff;
+                float: right;
+                font-size: 12px;
+                border: 2px solid #ddd;
+                -moz-box-shadow: 0 0 6px #000;
+                -webkit-box-shadow: 0 0 6px #000;
+                padding: 4px 10px 4px 10px;
+                border-radius: 6px;
+                -webkit-border-radius: 6px;
+                position: fixed;
+                opacity: 0.87;
+                display: block !important;;
+            }
